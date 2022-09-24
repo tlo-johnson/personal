@@ -1,4 +1,4 @@
-my_home=/Users/tolua/ta
+export my_home=/Users/tolua/ta
 
 # Hook up homebrew
 PATH="$PATH:$HOME/.local/bin"
