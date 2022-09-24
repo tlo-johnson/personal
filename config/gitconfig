@@ -1,0 +1,43 @@
+[init]
+  defaultBranch = main
+[user]
+	name = Tolu A.
+  email = tolu@adesegha.ca
+  editor = nvim
+	signingkey = F6BFD4906A0A76BD
+[alias]
+  a = add
+  aa = add -A
+  b = branch
+  bd = branch -D
+  bf = branch -f
+  c = commit --no-verify
+  ca = commit -a --amend --no-edit --no-verify
+  cm = commit -a --no-verify -m
+  d = diff
+  ds = diff --staged
+  f = fetch
+  fo = fetch origin --prune
+  l = log
+  m = merge
+  ms = merge --squash
+  o = checkout
+  ob = checkout -b
+  oh = checkout origin/HEAD
+  pl = pull
+  ps = push
+	psr = "! f() { git push -u origin $(git branch --show-current); }; f"
+  rh = reset --hard
+  rs = restore
+  rv = revert
+	rb = rebase
+  rbc = rebase --continue
+  rba = rebase --abort
+  s = status
+  sw = switch
+[gpg]
+	program = gpg2
+[pull]
+	rebase = true
+[advice]
+  detachedHead = false

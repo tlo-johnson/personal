@@ -1,0 +1,7 @@
+data
+**/.DS_Store
+**/packer_compiled.lua
+**/operto/
+nvim/shada
+brewfile.lock.json
+dev

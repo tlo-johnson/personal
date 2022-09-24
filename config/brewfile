@@ -1,0 +1,6 @@
+cask 'google-chrome'
+cask 'iterm2'
+cask 'karabiner-elements'
+
+tap 'homebrew/cask-fonts'
+cask 'homebrew/font-fira-code'

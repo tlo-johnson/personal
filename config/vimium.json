@@ -1,0 +1,36 @@
+{
+	"name": "Vimium C",
+	"@time": "8/18/2022, 2:38:55 PM",
+	"time": 1660855135949,
+	"environment": {
+		"extension": "1.99.2",
+		"platform": "mac",
+		"chromium": "103"
+	},
+	"clipSub": [
+		"r@^https://github\\.com/[^\\s\\/?#]+/[^\\s\\/?#]+(?=/)@@r",
+		"g@^https://www\\.zhihu\\.com/question/\\d+(?=/answer/?$)@@r",
+		"p@^https://item\\.m\\.jd\\.com/product/(\\d+)\\.html\\b@https://item.jd.com/$1.html@",
+		""
+	],
+	"exclusionListenHash": false,
+	"filterLinkHints": true,
+	"grabBackFocus": true,
+	"hideHud": true,
+	"keyLayout": 4,
+	"keyMappings": [
+		"#!no-check",
+		"map <c-f> scrollFullPageDown",
+		"map <c-b> scrollFullPageUp",
+		"map S goForward",
+		"map <c-h> previousTab",
+		"map <c-s> nextTab",
+		""
+	],
+	"nextPatterns": "下一封,下页,下一页,下一章,后一页,.btn-next,next,more,newer,>,›,→,»,≫,>>",
+	"previousPatterns": "上一封,上页,上一页,上一章,前一页,.btn-prev,prev,previous,back,older,<,‹,←,«,≪,<<",
+	"regexFindMode": true,
+	"searchEngines": "# this is a comment",
+	"showActionIcon": false,
+	"vimSync": true
+}

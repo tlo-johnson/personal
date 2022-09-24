@@ -1,0 +1,56 @@
+my_home=/Users/tolua/ta
+
+# Hook up homebrew
+PATH="$PATH:$HOME/.local/bin"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# Use gnu find utils instead of mac equivalents. This is needed to use the right version of find in neovim plugins
+PATH=$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH
+
+# Add java to path
+PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+# Set up ruby 3.1
+PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH"
+
+# Add scripts to path
+[[ -d $HOME/bin ]] || mkdir $HOME/bin
+for file in $(find $my_home/*/scripts -type file); do
+  ln -sf $file $HOME/bin/$(basename $file)
+done
+PATH="$HOME/bin:$PATH"
+
+# Generate ssh-config
+ssh_config=$HOME/.ssh/config
+for file in $(find $my_home/*/ssh-config -type file); do
+  [[ -z $(cat $ssh_config 2> /dev/null | grep $file) ]] && echo Include $file >> $HOME/.ssh/config
+done
+
+# Aliases
+alias e='XDG_DATA_HOME="$HOME/.nvim/data" XDG_CONFIG_HOME="$HOME/.nvim/config" JDTLS_JVM_ARGS="-javaagent:$XDG_DATA_HOME/nvim/mason/packages/jdtls/lombok.jar" nvim'
+alias g=git
+
+# Use vi mode in shell
+set -o vi
+
+# easy navigation to common folders
+setopt auto_cd
+for directory in $(ls -d $my_home/*/dev); do
+  cdpath+=($directory)
+done
+
+# Use nvim as editor
+export EDITOR=nvim
+
+# Use ctrl-r to search for command in shell history
+bindkey '^R' history-incremental-search-backward
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
