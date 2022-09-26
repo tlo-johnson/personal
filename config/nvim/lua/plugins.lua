@@ -42,6 +42,7 @@ function M.setup()
 
     use {
       "edeneast/nightfox.nvim",
+      disable = true,
       config = function()
         require('nightfox').setup({
           palettes = {
@@ -136,6 +137,8 @@ function M.setup()
     }
 
     use 'hashivim/vim-terraform'
+
+    use 'ayu-theme/ayu-vim'
 
     if packer_bootstrap then
       print "Restart Neovim required after installation!"

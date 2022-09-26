@@ -29,10 +29,7 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 
--- -- Highlight on yank
--- vim.cmd [[
---   augroup YankHighlight
---     autocmd!
---     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
---   augroup end
--- ]]
+vim.cmd [[
+  let ayucolor = 'light'
+  colorscheme ayu
+]]
