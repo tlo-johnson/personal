@@ -18,9 +18,6 @@ PATH=$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH
 # Add java to path
 PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
-# Set up ruby 3.1
-PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH"
-
 # Add scripts to path
 [[ -d $HOME/bin ]] || mkdir $HOME/bin
 for file in $(find $my_home/*/scripts -type file); do
