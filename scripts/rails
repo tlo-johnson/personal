@@ -1,7 +1,0 @@
-#! /bin/sh
-
-# rails rails is weird isn't it?
-# first rails: run the rails image
-# second rails: execute the rails command
-
-docker run --rm -itv $(pwd):$(pwd) -w $(pwd) rails rails $@
