@@ -27,6 +27,7 @@
   pl = pull
   ps = push
 	psr = "! f() { git push -u origin $(git branch --show-current); }; f"
+  r = reset
   rh = reset --hard
   rs = restore
   rv = revert
