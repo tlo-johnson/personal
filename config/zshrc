@@ -53,6 +53,6 @@ bindkey '^R' history-incremental-search-backward
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # load specific zshrc
-for file in $(find $my_home/.zshrc-* -type file); do
+for file in $(find $my_home/*/.zshrc -type file); do
   source $file
 done
