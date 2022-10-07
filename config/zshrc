@@ -1,4 +1,4 @@
-export my_home=/Users/tolua/ta
+export my_home=/Users/tadesegha/ta
 
 # Hook up homebrew
 PATH="$PATH:$HOME/.local/bin"
@@ -51,3 +51,8 @@ export EDITOR=nvim
 bindkey '^R' history-incremental-search-backward
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# load specific zshrc
+for file in $(find $my_home/.zshrc-* -type file); do
+  source $file
+done
