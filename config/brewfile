@@ -1,5 +1,6 @@
 cask 'google-chrome'
 cask 'iterm2'
+cask 'tmux'
 cask 'karabiner-elements'
 
 tap 'homebrew/cask-fonts'
