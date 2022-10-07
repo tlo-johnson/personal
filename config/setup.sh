@@ -11,9 +11,9 @@ nvim_config_dir=$HOME/.nvim/config
 [[ ! -d $nvim_config_dir ]] && mkdir -p $nvim_config_dir
 ln -sf $config_dir/nvim $nvim_config_dir/nvim
 
-echo "setting my_home directory in zshrc"
-my_home=$(dirname $(dirname $config_dir))
-sed -i '' "s|^export my_home=.*$|export my_home=$my_home|" $config_dir/zshrc
+# echo "setting my_home directory in zshrc"
+# my_home=$(dirname $(dirname $config_dir))
+# sed -i '' "s|^export my_home=.*$|export my_home=$my_home|" $config_dir/zshrc
 
 read -p "install homebrew packages (Y/n): " input
 [[ input != 'Y' ]] && exit 0
