@@ -1,7 +1,13 @@
+tap 'homebrew/cask-fonts'
+
 cask 'google-chrome'
 cask 'iterm2'
-cask 'tmux'
 cask 'karabiner-elements'
+cask 'docker'
+cask 'font-fira-code'
 
-tap 'homebrew/cask-fonts'
-cask 'homebrew/font-fira-code'
+brew 'tmux'
+brew 'neovim'
+brew 'ripgrep'
+brew 'yarn'
+brew 'node'

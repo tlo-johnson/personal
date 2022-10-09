@@ -1,6 +1,7 @@
 local api = vim.api
 local g = vim.g
 local opt = vim.opt
+local cmd = vim.cmd
 
 -- Remap leader and local leader to <Space>
 api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
@@ -29,7 +30,4 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 
-vim.cmd [[
-  let ayucolor = 'light'
-  colorscheme ayu
-]]
+cmd "colorscheme duskfox"
