@@ -18,18 +18,9 @@ PATH=$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH
 # Add java to path
 PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
-# Add scripts to path
+# Add bin to path
 [[ -d $HOME/bin ]] || mkdir $HOME/bin
-for file in $(find $ta/*/scripts -type file); do
-  ln -sf $file $HOME/bin/$(basename $file)
-done
 PATH="$HOME/bin:$PATH"
-
-# Generate ssh-config
-ssh_config=$HOME/.ssh/config
-for file in $ta/*/ssh-config; do
-  [[ -z $(cat $ssh_config 2> /dev/null | grep $file) ]] && echo Include $file >> $HOME/.ssh/config
-done 2> /dev/null
 
 # Aliases
 alias e='XDG_DATA_HOME="$HOME/.nvim/data" XDG_CONFIG_HOME="$HOME/.nvim/config" JDTLS_JVM_ARGS="-javaagent:$XDG_DATA_HOME/nvim/mason/packages/jdtls/lombok.jar" nvim'
@@ -52,7 +43,19 @@ bindkey '^R' history-incremental-search-backward
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# load specific zshrc
-for file in $ta/*/.zshrc; do
-  source $file
-done 2> /dev/null
+config_directories=($(echo $ta/*))
+for directory in $config_directories; do
+  # Add scripts to path
+  for file in $(find $directory/scripts -type file); do
+    ln -sf $file $HOME/bin/$(basename $file)
+  done
+
+  # load specific zshrc
+  [[ -f $directory/.zshrc ]] && source $directory/.zshrc
+
+  # Generate ssh-config
+  ssh_config=$HOME/.ssh/config
+  for file in $directory/ssh-config; do
+    [[ -z $(cat $ssh_config 2> /dev/null | grep $file) ]] && echo Include $file >> $HOME/.ssh/config
+  done 2> /dev/null
+done
