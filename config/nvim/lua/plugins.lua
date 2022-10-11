@@ -40,20 +40,6 @@ function M.setup()
   local function plugins(use)
     use { "wbthomason/packer.nvim" }
 
-    use {
-      "edeneast/nightfox.nvim",
-      disable = false,
-      config = function()
-        require('nightfox').setup({
-          palettes = {
-            all = {
-              -- bg1 = "#000000"
-            }
-          }
-        })
-      end,
-    }
-
     -- WhichKey
     use {
       "folke/which-key.nvim",
@@ -118,25 +104,25 @@ function M.setup()
           end,
         },
         "saadparwaiz1/cmp_luasnip",
-
-        -- "davidsierradz/cmp-conventionalcommits",
-        -- "lukas-reineke/cmp-rg",
-
-        -- "hrsh7th/cmp-nvim-lua",
-        -- "ray-x/cmp-treesitter",
-
-        -- "onsails/lspkind-nvim",
-        -- "hrsh7th/cmp-calc",
-        -- "f3fora/cmp-spell",
-        -- "hrsh7th/cmp-emoji",
-        -- "rafamadriz/friendly-snippets",
-        -- "honza/vim-snippets",
-      },
+      }
     }
 
     use 'hashivim/vim-terraform'
 
-    -- use 'ayu-theme/ayu-vim'
+    use {
+      "edeneast/nightfox.nvim",
+      disable = true,
+      config = function()
+        require('nightfox').setup()
+      end,
+    }
+
+    use {
+      'ayu-theme/ayu-vim',
+      disable = true
+    }
+
+    use 'projekt0n/github-nvim-theme'
 
     if packer_bootstrap then
       print "Restart Neovim required after installation!"

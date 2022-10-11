@@ -30,4 +30,4 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 
-cmd "colorscheme duskfox"
+cmd "colorscheme github_dark"
