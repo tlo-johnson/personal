@@ -20,9 +20,9 @@ PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # Add scripts to path
 [[ -d $HOME/bin ]] || mkdir $HOME/bin
-for file in $ta/*/scripts; do
+for file in $(find $ta/*/scripts -type file); do
   ln -sf $file $HOME/bin/$(basename $file)
-done 2> /dev/null
+done
 PATH="$HOME/bin:$PATH"
 
 # Generate ssh-config
