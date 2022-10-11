@@ -6,6 +6,7 @@ config_dir=$(readlink -f $(dirname $BASH_SOURCE))
 echo "creating symlinks"
 ln -sf $config_dir/gitconfig $HOME/.gitconfig
 ln -sf $config_dir/zshrc $HOME/.zshrc
+ln -sf $config_dir/tmux.conf $HOME/.tmux.conf
 
 nvim_config_dir=$HOME/.nvim/config
 [[ ! -d $nvim_config_dir ]] && mkdir -p $nvim_config_dir

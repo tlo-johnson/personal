@@ -1,4 +1,4 @@
-export my_home=$HOME/ta
+export ta=$HOME/ta
 
 # Hook up homebrew
 PATH="$PATH:$HOME/.local/bin"
@@ -20,14 +20,14 @@ PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # Add scripts to path
 [[ -d $HOME/bin ]] || mkdir $HOME/bin
-for file in $(find $my_home/*/scripts -type file); do
+for file in $(find $ta/*/scripts -type file); do
   ln -sf $file $HOME/bin/$(basename $file)
 done
 PATH="$HOME/bin:$PATH"
 
 # Generate ssh-config
 ssh_config=$HOME/.ssh/config
-for file in $(find $my_home/*/ssh-config -type file); do
+for file in $(find $ta/*/ssh-config -type file); do
   [[ -z $(cat $ssh_config 2> /dev/null | grep $file) ]] && echo Include $file >> $HOME/.ssh/config
 done
 
@@ -40,7 +40,7 @@ set -o vi
 
 # easy navigation to common folders
 setopt auto_cd
-for directory in $(ls -d $my_home/*/dev); do
+for directory in $(ls -d $ta/*/dev); do
   cdpath+=($directory)
 done
 
@@ -53,6 +53,6 @@ bindkey '^R' history-incremental-search-backward
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # load specific zshrc
-for file in $(find $my_home/*/.zshrc -type file); do
+for file in $(find $ta/*/.zshrc -type file); do
   source $file
 done
