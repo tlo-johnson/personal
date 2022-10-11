@@ -43,7 +43,11 @@ bindkey '^R' history-incremental-search-backward
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-config_directories=($(echo $ta/*))
+config_directories=($ta/personal)
+for directory in $ta/*; do
+  [[ ! $directory =~ "personal" ]] && config_directories+=$directory
+done
+
 for directory in $config_directories; do
   # Add scripts to path
   for file in $(find $directory/scripts -type file); do
