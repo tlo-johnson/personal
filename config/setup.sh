@@ -13,6 +13,11 @@ nvim_config_dir=$HOME/.nvim/config
 [[ -f $nvim_config_dir/nvim ]] && rm $nvim_config_dir/nvim
 ln -sf $config_dir/nvim $nvim_config_dir/nvim
 
+karabiner_config_dir=$HOME/.config/karabiner
+[[ ! -d $karabiner_config_dir ]] && mkdir -p $karabiner_config_dir
+[[ -f $karabiner_config_dir/karabiner ]] && rm $karabiner_config_dir/karabiner.json
+ln -sf $config_dir/karabiner.json $karabiner_confir_dir/karabiner.json
+
 # install homebrew
 [[ -z $(command -v brew) ]] && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
