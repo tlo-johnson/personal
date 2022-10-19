@@ -1,4 +1,5 @@
 local command = vim.api.nvim_create_user_command
+local cmd = vim.cmd
 
 command('Terminal', function(opts)
   local name = 'term://'
@@ -17,3 +18,8 @@ command('Terminal', function(opts)
   end
 
 end, { nargs = '?' })
+
+command('GitBlame', function()
+  cmd('enew')
+  cmd('read! git blame #')
+end, { })
