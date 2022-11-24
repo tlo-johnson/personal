@@ -29,5 +29,6 @@ opt.swapfile = false
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
+opt.guicursor = ""
 
 cmd "colorscheme github_dark"
