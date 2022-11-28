@@ -1,0 +1,8 @@
+#! /bin/bash
+
+input=$1
+output=$2
+
+( [ -z "$input" ] || [ -z "$output" ] ) && echo usage: convect-to-mp4 input.mov output.mp4 && exit 1
+
+ffmpeg -i "$input" -vcodec h264 -acodec mp2 "$output"
