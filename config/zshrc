@@ -18,6 +18,9 @@ PATH=$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH
 # Add java to path
 PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
+# Add homebrew ruby to path
+PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
 # Add bin to path
 [[ -d $HOME/bin ]] || mkdir $HOME/bin
 PATH="$HOME/bin:$PATH"
