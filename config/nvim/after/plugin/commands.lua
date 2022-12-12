@@ -11,10 +11,26 @@ command('Terminal', function(opts)
   end
 
   if vim.fn.bufexists(name) == 0 then
-    vim.cmd('terminal')
-    vim.cmd('file ' .. name)
+    cmd('terminal')
+    cmd('file ' .. name)
   else
-    vim.cmd('buffer ' .. name)
+    cmd('buffer ' .. name)
   end
 
 end, { nargs = '?' })
+
+command('Notes', function ()
+  local notes = {
+    getty = "~/ta/getty/notes.md",
+    operto = "~/ta/operto/notes.md",
+  }
+
+  local current_directory = vim.fn.getcwd()
+  for key, value in pairs(notes) do
+    if string.find(current_directory, key) then
+      cmd('edit ' .. value)
+    else
+      cmd('edit ~/ta/personal/notes.md')
+    end
+  end
+end, { })
