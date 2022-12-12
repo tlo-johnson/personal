@@ -28,9 +28,9 @@ command('Notes', function ()
   local current_directory = vim.fn.getcwd()
   for key, value in pairs(notes) do
     if string.find(current_directory, key) then
-      cmd('edit ' .. value)
-    else
-      cmd('edit ~/ta/personal/notes.md')
+      return cmd('edit ' .. value)
     end
   end
+
+  cmd('edit ~/ta/personal/notes.md')
 end, { })
