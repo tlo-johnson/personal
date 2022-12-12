@@ -30,5 +30,6 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.guicursor = ""
+opt.laststatus = 3
 
 cmd "colorscheme github_dark"

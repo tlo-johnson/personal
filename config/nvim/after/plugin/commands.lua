@@ -18,8 +18,3 @@ command('Terminal', function(opts)
   end
 
 end, { nargs = '?' })
-
-command('GitBlame', function()
-  cmd('enew')
-  cmd('read! git blame #')
-end, { })
