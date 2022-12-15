@@ -19,7 +19,7 @@ command('Terminal', function(opts)
 
 end, { nargs = '?' })
 
-command('Notes', function ()
+command('Notes', function()
   local notes = {
     getty = "~/ta/getty/notes.md",
     operto = "~/ta/operto/notes.md",
