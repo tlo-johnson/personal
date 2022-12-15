@@ -12,7 +12,7 @@ command('Terminal', function(opts)
 
   if vim.fn.bufexists(name) == 0 then
     cmd('terminal')
-    cmd('file ' .. name)
+    cmd('keepalt file ' .. name)
   else
     cmd('buffer ' .. name)
   end
